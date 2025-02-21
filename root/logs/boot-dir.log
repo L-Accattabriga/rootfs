@@ -1,0 +1,6 @@
+total 112M   
+-rw-r--r--    1 root     root        6.3M Feb 21 15:23 System.map-6.12.16-0-lts
+lrwxrwxrwx    1 root     root           1 Feb 21 21:28 boot -> ./
+-rw-r--r--    1 root     root      264.5K Feb 21 15:23 config-6.12.16-0-lts
+-rw-------    1 root     root       94.6M Feb 21 21:28 initramfs-lts
+-rw-r--r--    1 root     root       11.1M Feb 21 15:23 vmlinuz-lts
