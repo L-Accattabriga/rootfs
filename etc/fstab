@@ -1,2 +1,5 @@
-/dev/cdrom	/media/cdrom	iso9660	noauto,ro 0 0
-/dev/usbdisk	/media/usb	vfat	noauto,ro 0 0
+# Essential system filesystems
+proc        /proc       proc        defaults 0 0
+sysfs       /sysfs      sysfs       defaults 0 0
+devpts      /dev/pts    devpts      defaults 0 0
+tmpfs       /run        tmpfs       defaults 0 0
