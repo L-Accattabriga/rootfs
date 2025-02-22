@@ -1,24 +1,25 @@
 #!/bin/sh
 # Alpine Custom Init Script for Live USB
 
-mount -t proc none /proc
-mount -t sysfs none /sys
-mount -t devtmpfs none /dev
-mount -t tmpfs none /run
+# Mount essential filesystems
+mount -t proc proc /proc
+mount -t sysfs sys /sys
+mount -t devtmpfs dev /dev
+mount -t tmpfs tmpfs /run
 
-echo "Finding root filesystem..."
-ROOTDEV=$(blkid -L "ALPINE_USB") # Ensure USB is labeled "ALPINE_USB"
+echo "Detecting boot device..."
+ROOTDEV=$(blkid -L ALPINE_CUSTOM)  # Label your USB drive "ALPINE_CUSTOM"
 if [ -z "$ROOTDEV" ]; then
-    echo "ERROR: Root device not found!"
-    exec sh
+    echo "ERROR: Could not find root device!"
+    exec sh  # Drop into shell for debugging
 fi
 
-echo "Mounting root filesystem..."
+# Mount root filesystem
 mkdir -p /sysroot
 mount -o ro $ROOTDEV /sysroot || {
     echo "ERROR: Failed to mount root filesystem!"
-    exec sh
+    exec sh  # Drop into shell for debugging
 }
 
-echo "Switching to real root..."
+echo "Switching to new root..."
 exec switch_root /sysroot /sbin/init
