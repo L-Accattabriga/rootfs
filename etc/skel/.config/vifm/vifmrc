@@ -1,50 +1,38 @@
-" ==============================
-" General Settings
-" ==============================
-set ignorecase            " Case-insensitive searching
-set wildmenu              " Improved command completion
-set vicmd=nvim            " Use Neovim (or change to 'vim' if needed)
+""" vifmrc configuration file """
 
-" ==============================
-" Display & Sorting (like ls -AhCF1)
-" ==============================
-set timefmt="%F %T"       " Show full timestamp (YYYY-MM-DD HH:MM:SS)
-set numbers               " Show line numbers
-set symlinks              " Show symbolic links
-set nowrap                " Disable line-wrapping
-set dotfiles              " Show dotfiles by default
-set sortby=time           " Sort by modification time (newest first)
-set sortdirection=down    " Newest files first
+" Enable detailed file listing similar to 'ls -al'
+set viewcolumns=type,permissions,nlink,user,group,size,time,name
 
-" ==============================
-" Trash Bin Instead of Deleting
-" ==============================
-let $TRASH="$HOME/.local/share/Trash/files"
-command! trash mv % $TRASH
-nnoremap dd :trash<CR>   " dd moves files to trash instead of deleting
+" Set time format to display full timestamps
+set timefmt=%Y-%m-%d %H:%M:%S
 
-" ==============================
-" Navigation Improvements
-" ==============================
-nnoremap H :cd ..<CR>          " Go up one directory
-nnoremap L :cd %<CR>           " Enter directory under cursor
-nnoremap J :down<CR>           " Move down
-nnoremap K :up<CR>             " Move up
-nnoremap <C-h> :tabprevious<CR> " Switch tabs (left)
-nnoremap <C-l> :tabnext<CR>     " Switch tabs (right)
+" Show hidden files by default
+set hidden
 
-" ==============================
-" File Handling
-" ==============================
-nnoremap <Enter> :open<CR>      " Enter opens files
-nnoremap x :!xdg-open %<CR>     " Use default system opener
+" Use human-readable file sizes (e.g., 1K, 2M, 3G)
+set humanfmt
 
-" ==============================
-" Status Line & Indicators
-" ==============================
-set ruler                     " Show file position
+" Enable sorting by default (sorted by modification time, newest first)
+set sort=mtime
+set sort=-mtime
 
-" ==============================
-" Startup Directory
-" ==============================
-cd ~
+" Display file permissions in a way similar to ls -l
+set permissions=rwxrwxrwx
+
+" Display symbolic links in a distinct way
+set symlink=target
+
+" Display directories with a trailing slash
+set dirsuffix=on
+
+" Enable full path display in the status line
+set titlestring=%f
+
+" Enable color for different file types
+set colorscheme=default
+
+" Enable previews (if supported)
+set preview
+
+" Ensure vifm doesn't truncate filenames
+set nowrap
