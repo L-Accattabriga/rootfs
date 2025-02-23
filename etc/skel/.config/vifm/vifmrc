@@ -2,25 +2,19 @@
 " General Settings
 " ==============================
 set ignorecase            " Case-insensitive searching
-set hidden                " Show hidden files (dotfiles)
 set wildmenu              " Improved command completion
-set vicmd='nvim'          " Use Neovim (or change to 'vim')
+set vicmd=nvim            " Use Neovim (or change to 'vim' if needed)
 
 " ==============================
 " Display & Sorting (like ls -AhCF1)
 " ==============================
-set dirformat="%c%p "     " Show directories with '/' at the end
 set timefmt="%F %T"       " Show full timestamp (YYYY-MM-DD HH:MM:SS)
 set numbers               " Show line numbers
 set symlinks              " Show symbolic links
 set nowrap                " Disable line-wrapping
 set dotfiles              " Show dotfiles by default
-
-" Sorting: mimic `ls -AhCF1`
-set sort=ext              " Sort by extension
-set sortby=time           " Sort by modification time
+set sortby=time           " Sort by modification time (newest first)
 set sortdirection=down    " Newest files first
-set naturalorder          " Use natural sorting (e.g., file10 comes after file2)
 
 " ==============================
 " Trash Bin Instead of Deleting
@@ -44,12 +38,10 @@ nnoremap <C-l> :tabnext<CR>     " Switch tabs (right)
 " ==============================
 nnoremap <Enter> :open<CR>      " Enter opens files
 nnoremap x :!xdg-open %<CR>     " Use default system opener
-nnoremap yy :copy % $HOME/clipboard<CR> " Copy file to clipboard dir
 
 " ==============================
 " Status Line & Indicators
 " ==============================
-set statusline="%m %t %M %s %d"
 set ruler                     " Show file position
 
 " ==============================
