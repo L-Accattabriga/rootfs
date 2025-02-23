@@ -1,38 +1,17 @@
-""" vifmrc configuration file """
-
 " Enable detailed file listing similar to 'ls -al'
-set viewcolumns=type,permissions,nlink,user,group,size,time,name
+set viewcolumns=permissions,nlink,user,group,size,time,name
 
 " Set time format to display full timestamps
-set timefmt=%Y-%m-%d %H:%M:%S
+set timefmt=%Y-%m-%d\ %H:%M:%S
 
 " Show hidden files by default
-set hidden
+set dotfiles
 
 " Use human-readable file sizes (e.g., 1K, 2M, 3G)
 set humanfmt
 
-" Enable sorting by default (sorted by modification time, newest first)
-set sort=mtime
-set sort=-mtime
-
-" Display file permissions in a way similar to ls -l
-set permissions=rwxrwxrwx
-
-" Display symbolic links in a distinct way
-set symlink=target
-
 " Display directories with a trailing slash
-set dirsuffix=on
-
-" Enable full path display in the status line
-set titlestring=%f
-
-" Enable color for different file types
-set colorscheme=default
-
-" Enable previews (if supported)
-set preview
+set dirsuffix=/
 
 " Ensure vifm doesn't truncate filenames
 set nowrap
